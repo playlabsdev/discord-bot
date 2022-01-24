@@ -42,9 +42,9 @@ module.exports = {
       return;
     }
 
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.substring(prefix.length).split(" ");
+    const args = content.substring(prefix.length).split(" ");
     const mentioned = message.mentions.users.first();
 
     if (!args) {
