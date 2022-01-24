@@ -1,0 +1,16 @@
+{
+  "statuses": [
+    {
+      "name": "Drama server",
+      "type": "LISTENING"
+    },
+    {
+      "name": "Perasaan dia",
+      "type": "PLAYING"
+    },
+    {
+      "name": "Koro selingkuh",
+      "type": "WATCHING"
+    }
+  ]
+}

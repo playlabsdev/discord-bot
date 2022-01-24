@@ -1,0 +1,9 @@
+{
+  "greets": {
+    "detector": ["pagi", "siang", "sore", "malam"],
+    "pagi": ["Pagi!"],
+    "siang": ["Siang!"],
+    "sore": ["Sore!"],
+    "malam": ["Malam!"]
+  }
+}
