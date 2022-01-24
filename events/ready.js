@@ -14,6 +14,6 @@ module.exports = {
     setInterval(() => {
       let spamChat = spam[Math.floor(Math.random() * spam.length)];
       spamming.send(spamChat);
-    }, 10000);
+    }, 1800000);
   },
 };
