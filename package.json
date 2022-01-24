@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Discord Bot Template",
   "main": "index.js",
-  "repository": "https://github.com/playlabsdev/discord-bot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playlabsdev/discord-bot.git"
+  },
   "author": "Khoironi Kurnia Syah <khoironidev@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index",
+    "start": "node index.js",
+    "node": "node run index.js",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
