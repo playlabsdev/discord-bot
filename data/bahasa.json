@@ -1,16 +1,3 @@
 {
-  "languages": [
-    "ar-SA",
-    "ja-JP",
-    "jv-ID",
-    "ms-MY",
-    "es-MX",
-    "th-TH",
-    "uk-UA",
-    "ar-YE",
-    "ar-EG",
-    "fr-FR",
-    "en-US",
-    "de-DE"
-  ]
+  "languages": ["id-ID", "su-ID", "jv-ID"]
 }
