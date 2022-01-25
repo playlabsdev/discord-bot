@@ -1,9 +1,30 @@
 {
   "greets": {
     "detector": ["pagi", "siang", "sore", "malam"],
-    "pagi": ["Pagi!"],
-    "siang": ["Siang!"],
-    "sore": ["Sore!"],
-    "malam": ["Malam!"]
+    "pagi": [
+      "Pagi!",
+      "Pagi! Yuk sarapan dulu sayang",
+      "Ohayou!",
+      "Pagi! Semangat untuk hari ini ya!",
+      "Pagi! Semoga harimu menyenangkan...",
+      "Pagi! Sarapannya udah ku buatin tuh sayang..."
+    ],
+    "siang": [
+      "Siang!",
+      "Siang! Udah makan siang belum sayang?",
+      "Siang! Kamu mau tidur siang dulu?"
+    ],
+    "sore": [
+      "Sore!",
+      "Sore! Istirahat dulu, kamu cape kan?",
+      "Sore! Mandi dulu biar seger"
+    ],
+    "malam": [
+      "Malam!",
+      "Malam! Waktunya tidur, besok kamu sibuk lagi kan?",
+      "Malam! Bobo yuk!",
+      "Malam! Cape ya? Sini ku pijitin...",
+      "Malam! Ini yang punya server kok jarang stream ya?"
+    ]
   }
 }
