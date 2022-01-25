@@ -12,13 +12,12 @@ const detectgreet = require("../data/greets.json").greets.detector;
 module.exports = {
   name: "messageCreate",
   execute(message, client) {
-    if (message.guild.id == 935198488151617596) return;
+    if (message.guild.id != 935198488151617596) return;
     const content = message.content.toLowerCase();
     const filter = content.split(" ");
     const checkLoli = filter.filter((word) => detectloli.includes(word));
     const checkCoklat = filter.filter((word) => detectcoklat.includes(word));
     const checkGreet = filter.filter((word) => detectgreet.includes(word));
-    console.log("minum");
 
     if (message.channelId == process.env.SPAM_CHANNELID) {
       if (message.mentions.has(client.user)) {
@@ -49,7 +48,6 @@ module.exports = {
 
     const args = content.substring(prefix.length).split(" ");
     const mentioned = message.mentions.users.first();
-    console.log("makan");
 
     if (!args) {
       message.reply("Ada yang hilang sayang");
@@ -57,18 +55,20 @@ module.exports = {
     }
 
     message.channel.sendTyping();
-    console.log("yo");
     setTimeout(() => {
       if (!mentioned) {
-        const commandArg = generalCommand.get(args[1]);
+        const commandArg =
+          generalCommand.get(args[1]) || voiceMessageCommand.get(args[1]);
         if (!commandArg) {
           message.reply("Ada yang salah sayang");
           return;
         }
-        commandArg.execute(message);
+        commandArg.execute(
+          message,
+          message.content.substring(prefix.length + args[1].length + 2)
+        );
       } else {
         const commandArg = withMentionCommand.get(args[1]);
-        console.log(commandArg);
         if (!commandArg) {
           message.reply("Ada yang kurang sayang");
           return;
