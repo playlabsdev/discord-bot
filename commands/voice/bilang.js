@@ -8,7 +8,7 @@ module.exports = {
   async execute(message, args) {
     const channel = message.member.voice.channel;
     if (!channel) {
-      message.reply("Join dulu sayang . . . ");
+      message.reply("Join voice dulu sayang . . . ");
       return;
     }
     const player = voice.createAudioPlayer();
@@ -25,9 +25,8 @@ module.exports = {
       guildId: message.guild.id,
       adapterCreator: message.guild.voiceAdapterCreator,
     });
-
-    player.play(resource);
     connection.subscribe(player);
+    player.play(resource);
 
     player.on(voice.AudioPlayerStatus.Idle, () => {
       connection.destroy();
