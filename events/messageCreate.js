@@ -1,6 +1,7 @@
 const generalCommand = require("../handlers/generalCommandHandler");
 const withMentionCommand = require("../handlers/withMentionCommandHandler");
-const autoMessage = require("../handlers/autoMessageHandler");
+const autoMessageCommand = require("../handlers/autoMessageHandler");
+const voiceMessageCommand = require("../handlers/voiceMessageHandler");
 
 const prefix = process.env.PREFIX;
 
@@ -11,34 +12,36 @@ const detectgreet = require("../data/greets.json").greets.detector;
 module.exports = {
   name: "messageCreate",
   execute(message, client) {
+    if (message.guild.id == 935198488151617596) return;
     const content = message.content.toLowerCase();
     const filter = content.split(" ");
     const checkLoli = filter.filter((word) => detectloli.includes(word));
     const checkCoklat = filter.filter((word) => detectcoklat.includes(word));
     const checkGreet = filter.filter((word) => detectgreet.includes(word));
+    console.log("minum");
 
     if (message.channelId == process.env.SPAM_CHANNELID) {
       if (message.mentions.has(client.user)) {
-        autoMessage.get("gelud").execute(message);
+        autoMessageCommand.get("gelud").execute(message);
         return;
       }
     }
 
     if (checkLoli.length) {
       message.channel.sendTyping();
-      autoMessage.get("loli").execute(message);
+      autoMessageCommand.get("loli").execute(message);
       return;
     }
 
     if (checkCoklat.length) {
       message.channel.sendTyping();
-      autoMessage.get("coklat").execute(message);
+      autoMessageCommand.get("coklat").execute(message);
       return;
     }
 
     if (checkGreet.length) {
       message.channel.sendTyping();
-      autoMessage.get("greets").execute(message, checkGreet[0]);
+      autoMessageCommand.get("greets").execute(message, checkGreet[0]);
       return;
     }
 
@@ -46,6 +49,7 @@ module.exports = {
 
     const args = content.substring(prefix.length).split(" ");
     const mentioned = message.mentions.users.first();
+    console.log("makan");
 
     if (!args) {
       message.reply("Ada yang hilang sayang");
@@ -53,7 +57,7 @@ module.exports = {
     }
 
     message.channel.sendTyping();
-
+    console.log("yo");
     setTimeout(() => {
       if (!mentioned) {
         const commandArg = generalCommand.get(args[1]);
