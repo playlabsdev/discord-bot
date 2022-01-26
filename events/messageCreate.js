@@ -20,14 +20,9 @@ module.exports = {
     const checkCoklat = filter.filter((word) => detectcoklat.includes(word));
     const checkGreet = filter.filter((word) => detectgreet.includes(word));
 
-    if (message.channelId == process.env.SPAM_CHANNELID) {
-      if (message.mentions.has(client.user)) {
-        autoMessageCommand.get("gelud").execute(message);
-        return;
-      }
-    }
     setTimeout(() => {
       if (!content.startsWith(prefix) || message.author.bot) return;
+      message.channel.sendTyping();
 
       const args = content.substring(prefix.length).split(" ");
       const mentioned = message.mentions.users.first();
@@ -83,6 +78,11 @@ module.exports = {
       return;
     }
 
-    message.channel.sendTyping();
+    if (message.channelId == process.env.SPAM_CHANNELID) {
+      if (message.mentions.has(client.user)) {
+        autoMessageCommand.get("gelud").execute(message);
+        return;
+      }
+    }
   },
 };
