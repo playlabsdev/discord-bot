@@ -12,7 +12,8 @@ const detectgreet = require("../data/greets.json").greets.detector;
 module.exports = {
   name: "messageCreate",
   execute(message, client) {
-    if (message.guild.id == 935198488151617596) return;
+    // if (message.guild.id != 935198488151617596) return;
+    if (message.author.bot || message.author.id == client.user.id) return;
     const content = message.content.toLowerCase();
     const filter = content.split(" ");
     const checkLoli = filter.filter((word) => detectloli.includes(word));
