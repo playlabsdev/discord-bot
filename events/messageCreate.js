@@ -26,36 +26,17 @@ module.exports = {
         return;
       }
     }
-
-    if (checkLoli.length) {
-      message.channel.sendTyping();
-      autoMessageCommand.get("loli").execute(message);
-      return;
-    }
-
-    if (checkCoklat.length) {
-      message.channel.sendTyping();
-      autoMessageCommand.get("coklat").execute(message);
-      return;
-    }
-
-    if (checkGreet.length) {
-      message.channel.sendTyping();
-      autoMessageCommand.get("greets").execute(message, checkGreet[0]);
-      return;
-    }
-
-    if (!content.startsWith(prefix) || message.author.bot) return;
-
-    const args = content.substring(prefix.length).split(" ");
-    const mentioned = message.mentions.users.first();
-
-    if (!args) {
-      message.reply("Ada yang hilang sayang");
-      return;
-    }
-
     setTimeout(() => {
+      if (!content.startsWith(prefix) || message.author.bot) return;
+
+      const args = content.substring(prefix.length).split(" ");
+      const mentioned = message.mentions.users.first();
+
+      if (!args) {
+        message.reply("Ada yang hilang sayang");
+        return;
+      }
+
       if (!mentioned) {
         const commandArg =
           generalCommand.get(args[1]) || voiceMessageCommand.get(args[1]);
@@ -83,6 +64,25 @@ module.exports = {
         commandArg.execute(message, mentioned);
       }
     }, 1000);
+
+    if (checkLoli.length) {
+      message.channel.sendTyping();
+      autoMessageCommand.get("loli").execute(message);
+      return;
+    }
+
+    if (checkCoklat.length) {
+      message.channel.sendTyping();
+      autoMessageCommand.get("coklat").execute(message);
+      return;
+    }
+
+    if (checkGreet.length) {
+      message.channel.sendTyping();
+      autoMessageCommand.get("greets").execute(message, checkGreet[0]);
+      return;
+    }
+
     message.channel.sendTyping();
   },
 };
