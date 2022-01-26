@@ -55,7 +55,6 @@ module.exports = {
       return;
     }
 
-    message.channel.sendTyping();
     setTimeout(() => {
       if (!mentioned) {
         const commandArg =
@@ -84,5 +83,6 @@ module.exports = {
         commandArg.execute(message, mentioned);
       }
     }, 1000);
+    message.channel.sendTyping();
   },
 };
