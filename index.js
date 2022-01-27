@@ -19,5 +19,4 @@ for (const fileEvent of fileEvents) {
     client.on(event.name, (args) => event.execute(args, client));
   }
 }
-
 client.login(process.env.BOT_TOKEN);

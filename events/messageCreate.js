@@ -22,7 +22,6 @@ module.exports = {
 
     setTimeout(() => {
       if (!content.startsWith(prefix) || message.author.bot) return;
-      message.channel.sendTyping();
 
       const args = content.substring(prefix.length).split(" ");
       const mentioned = message.mentions.users.first();

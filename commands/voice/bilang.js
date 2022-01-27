@@ -1,7 +1,6 @@
 const googleTTS = require("google-tts-api");
 const voice = require("@discordjs/voice");
 const languages = require("../../data/bahasa.json").languages;
-const { crypto_kx_client_session_keys } = require("libsodium-wrappers");
 
 module.exports = {
   name: "bilang",
