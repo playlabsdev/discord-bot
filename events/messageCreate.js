@@ -60,26 +60,35 @@ module.exports = {
     }, 1000);
 
     if (checkLoli.length) {
+      setTimeout(() => {
+        autoMessageCommand.get("loli").execute(message);
+      }, 1500);
       message.channel.sendTyping();
-      autoMessageCommand.get("loli").execute(message);
       return;
     }
 
     if (checkCoklat.length) {
+      setTimeout(() => {
+        autoMessageCommand.get("coklat").execute(message);
+      }, 1500);
       message.channel.sendTyping();
-      autoMessageCommand.get("coklat").execute(message);
       return;
     }
 
     if (checkGreet.length) {
+      setTimeout(() => {
+        autoMessageCommand.get("greets").execute(message, checkGreet[0]);
+      }, 1500);
       message.channel.sendTyping();
-      autoMessageCommand.get("greets").execute(message, checkGreet[0]);
       return;
     }
 
     if (message.channelId == process.env.SPAM_CHANNELID) {
       if (message.mentions.has(client.user)) {
-        autoMessageCommand.get("gelud").execute(message);
+        setTimeout(() => {
+          autoMessageCommand.get("gelud").execute(message);
+        }, 1500);
+        message.channel.sendTyping();
         return;
       }
     }
