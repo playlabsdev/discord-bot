@@ -14,9 +14,10 @@ const fileEvents = require("./handlers/eventHandler");
 for (const fileEvent of fileEvents) {
   const event = require(`./events/${fileEvent}`);
   if (event.once) {
-    client.once(event.name, (args) => event.execute(args, client));
+    client.once(event.name, async (args) => event.execute(args, client));
   } else {
-    client.on(event.name, (args) => event.execute(args, client));
+    client.on(event.name, async (args) => event.execute(args, client));
   }
 }
+
 client.login(process.env.BOT_TOKEN);
