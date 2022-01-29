@@ -19,6 +19,17 @@ module.exports = {
     (async () => {
       try {
         if (process.env.ENV === "production") {
+          rest
+            .get(Routes.applicationGuildCommands(clientId, guildId))
+            .then((data) => {
+              for (const command of data) {
+                const deleteUrl = `${Routes.applicationGuildCommands(
+                  clientId,
+                  guildId
+                )}/${command.id}`;
+                rest.delete(deleteUrl);
+              }
+            });
           await rest
             .put(Routes.applicationCommands(clientId), {
               body: slashCommand,
