@@ -22,11 +22,13 @@ module.exports = {
           rest
             .get(Routes.applicationGuildCommands(clientId, guildId))
             .then((data) => {
+              console.log("[Deleting] slash commands in DEVELOPMENT");
               for (const command of data) {
                 const deleteUrl = `${Routes.applicationGuildCommands(
                   clientId,
                   guildId
                 )}/${command.id}`;
+                console.log(`Deleting ${command.name} command`);
                 rest.delete(deleteUrl);
               }
             });
@@ -34,16 +36,22 @@ module.exports = {
             .put(Routes.applicationCommands(clientId), {
               body: slashCommand,
             })
-            .then(() =>
-              console.log("Building slash commands in PRODUCTION success")
-            );
+            .then(() => {
+              console.log("[Adding] slash commands in PRODUCTION success");
+              slashCommand.map((command) =>
+                console.log(`Command : [${command.name}] => added`)
+              );
+            });
         } else {
           await rest
             .put(Routes.applicationGuildCommands(clientId, guildId), {
               body: slashCommand,
             })
             .then(() => {
-              console.log("Building slash commands in DEVELOPMENT success");
+              console.log("[Adding] slash commands in DEVELOPMENT success");
+              slashCommand.map((command) =>
+                console.log(`Command : [${command.name}] => added`)
+              );
             });
         }
       } catch (error) {
@@ -51,16 +59,20 @@ module.exports = {
       }
     })();
 
-    // console.log(
-    //   rest
-    //     .get(Routes.applicationGuildCommands(clientId, guildId))
-    //     .then((data) => console.log(data))
-    // );
-    // console.log(
-    //   rest
-    //     .get(Routes.applicationCommands(clientId, guildId))
-    //     .then((data) => console.log(data))
-    // );
+    rest
+      .get(Routes.applicationGuildCommands(clientId, guildId))
+      .then((data) => {
+        console.log(`[Checking] slash command in Guild ${guildId}`);
+        data.map((command) =>
+          console.log(`Command : [${command.name}] => detected`)
+        );
+      });
+    rest.get(Routes.applicationCommands(clientId, guildId)).then((data) => {
+      console.log("[Checking] slash command in Global");
+      data.map((command) =>
+        console.log(`Command : [${command.name}] => detected`)
+      );
+    });
 
     let spamming = client.channels.cache.get(process.env.SPAM_CHANNELID);
     setInterval(() => {
