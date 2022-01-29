@@ -63,7 +63,9 @@ module.exports = {
   ],
   execute(interaction, client) {
     const { options } = interaction;
-    const chosenOption = options.getString("mode");
+    const chosenOption = options.getString("game");
+
+    if (!interaction || !options || !chosenOption) return;
     if (interaction.member.voice.channel) {
       client.discordTogether = new DiscordTogether(client);
       client.discordTogether
