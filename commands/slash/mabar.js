@@ -61,7 +61,7 @@ module.exports = {
       ],
     },
   ],
-  execute(interaction, client) {
+  async execute(interaction, client) {
     const { options } = interaction;
     const chosenOption = options.getString("game");
 
