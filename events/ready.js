@@ -19,7 +19,7 @@ module.exports = {
     (async () => {
       try {
         if (process.env.ENV === "production") {
-          rest
+          await rest
             .get(Routes.applicationGuildCommands(clientId, guildId))
             .then((data) => {
               console.log("[Deleting] slash commands in DEVELOPMENT");
