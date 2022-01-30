@@ -13,7 +13,7 @@ module.exports = {
       choices: [
         {
           name: "Indonesia",
-          value: "youtube",
+          value: "id-ID",
         },
         {
           name: "Jawa",

@@ -71,10 +71,7 @@ module.exports = {
       client.discordTogether
         .createTogetherCode(interaction.member.voice.channel.id, chosenOption)
         .then(async (invite) => {
-          return await interaction.reply({
-            content: `${invite.code}`,
-            ephemeral: true,
-          });
+          return await interaction.reply(`${invite.code}`);
         });
     } else {
       interaction.reply("Join voice dulu sayang . . . ");
