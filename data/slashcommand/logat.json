@@ -1,0 +1,24 @@
+{
+  "logat": [
+    {
+      "name": "Indonesia",
+      "value": "id-ID"
+    },
+    {
+      "name": "Jawa",
+      "value": "jv-ID"
+    },
+    {
+      "name": "Sunda",
+      "value": "su-ID"
+    },
+    {
+      "name": "English (US)",
+      "value": "en-US"
+    },
+    {
+      "name": "Japanese",
+      "value": "ja-JP"
+    }
+  ]
+}
