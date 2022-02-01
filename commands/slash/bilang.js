@@ -1,6 +1,8 @@
 const googleTTS = require("google-tts-api");
 const voice = require("@discordjs/voice");
 
+const logat = require("../../data/slashcommand/logat.json").logat;
+
 module.exports = {
   name: "bilang",
   description: "Koro bilang sesuatu ke kamu.",
@@ -10,28 +12,7 @@ module.exports = {
       description: "Mau logat apa?",
       type: 3,
       required: true,
-      choices: [
-        {
-          name: "Indonesia",
-          value: "id-ID",
-        },
-        {
-          name: "Jawa",
-          value: "jv-ID",
-        },
-        {
-          name: "Sunda",
-          value: "su-ID",
-        },
-        {
-          name: "English (US)",
-          value: "en-US",
-        },
-        {
-          name: "Japanese",
-          value: "ja-JP",
-        },
-      ],
+      choices: logat,
     },
     {
       name: "kalimat",
