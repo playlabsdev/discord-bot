@@ -17,6 +17,19 @@ module.exports = {
       (guild) => guild.name == "Nia's server"
     ).id;
     (async () => {
+      // await rest
+      //   .get(Routes.applicationGuildCommands(clientId, guildId))
+      //   .then((data) => {
+      //     console.log("[Deleting] slash commands in DEVELOPMENT");
+      //     for (const command of data) {
+      //       const deleteUrl = `${Routes.applicationGuildCommands(
+      //         clientId,
+      //         guildId
+      //       )}/${command.id}`;
+      //       console.log(`Deleting ${command.name} command`);
+      //       rest.delete(deleteUrl);
+      //     }
+      //   });
       try {
         if (process.env.ENV === "production") {
           await rest
