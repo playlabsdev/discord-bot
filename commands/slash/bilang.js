@@ -27,10 +27,12 @@ module.exports = {
     const kalimat = options.getString("kalimat");
     if (!interaction || !options || !logat || !kalimat) return;
     const channel = interaction.member.voice.channel;
+    const author = interaction.user.username;
     if (!channel) {
       interaction.reply("Join voice dulu sayang . . . ");
       return;
     }
+    console.log(`${author} is using [slash]: bilang`);
     let sounds = [];
     const player = voice.createAudioPlayer();
     if (kalimat.length > 200) {
