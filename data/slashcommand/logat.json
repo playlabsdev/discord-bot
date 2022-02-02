@@ -19,6 +19,22 @@
     {
       "name": "Japanese",
       "value": "ja-JP"
+    },
+    {
+      "name": "Arabic",
+      "value": "ar-SA"
+    },
+    {
+      "name": "Russian",
+      "value": "ru-RU"
+    },
+    {
+      "name": "Spanish",
+      "value": "es-MX"
+    },
+    {
+      "name": "Tamil",
+      "value": "ta-IN"
     }
   ]
 }
